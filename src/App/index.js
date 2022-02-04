@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AppUI } from "./AppUI";
 import './App.css';
+import { useLocalStorage } from '../useLocalStorage';
 
 const defaultToDos = [{
 	"text": "Compensation Analyst",
@@ -21,17 +22,8 @@ const defaultToDos = [{
 
 
 function App() {
-  // ! LocalStorage
-  const localStorageToDos = localStorage.getItem('TO_DOS_V1');
-  let parsedToDos;
-
-  if (localStorageToDos) {
-    parsedToDos = JSON.parse(localStorageToDos)
-  } else {
-    localStorage.setItem('TO_DOS_V1', JSON.stringify([]));
-    parsedToDos = [];
-  }
-
+	const [ToDos, saveToDos] = useLocalStorage('TO_DOS_V1');
+	
 
 	const [ToDos, setToDos] = useState(parsedToDos);
 	const [searchValue, setSearchValue] = useState('');
@@ -53,13 +45,6 @@ function App() {
 		});
 	}
 
-
-// bridge between localStorage and the state
-const saveToDos = newToDos => {
-  const stringifiedToDos = JSON.stringify(newToDos);
-  localStorage.setItem('TO_DOS_V1', stringifiedToDos);
-  setToDos(newToDos);
-}
 
 	const completeToDo = (text) => {
         const toDoIndex = ToDos.findIndex((to_do) => to_do.text === text);
