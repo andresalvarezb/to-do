@@ -4,37 +4,40 @@ import TodoSearch from "../components/TodoSearch";
 import TodoList from "../components/TodoList";
 import TodoItem from "../components/TodoItem";
 import CreateTodoButton from "../components/CreateTodoButton";
+import { TodoContext } from '../components/TodoContext';
 
 
-function AppUI({
-	totalToDos,
-    completedToDos, 
-	searchedToDos,
-    searchValue, 
-    setSearchValue, 
-    completeToDo, 
-    deleteToDo,
-	error,
-	loading,
-}) {
+function AppUI() {
 
-    return (
-        <React.Fragment>
-            <TodoCounter totalToDos={totalToDos} completedToDos={completedToDos} />
-			<TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
-			<TodoList>
-                {error && <p>There is a error</p>}
-				{loading && <p>we are loading...</p>}
-                {(!loading && !searchedToDos.length) && <p>Create you first to-do</p>}
+	return (
+		<React.Fragment>
+			<TodoCounter />
+			<TodoSearch />
+			<TodoContext.Consumer>
 				{
-					searchedToDos.map((toDo, index) => (
-						<TodoItem key={index} text={toDo.text} completed={toDo.completed} onComplete={() => completeToDo(toDo.text)} onDelete={() => deleteToDo(toDo.text)}/>
-					))
+					({ error, loading, searchedToDos, completeToDo, deleteToDo }) => (
+						<TodoList>
+							{error && <p>There is a error</p>}
+							{loading && <p>we are loading...</p>}
+							{(!loading && !searchedToDos.length) && <p>Create you first to-do</p>}
+							{
+								searchedToDos.map((toDo, index) => (
+									<TodoItem
+										key={index}
+										text={toDo.text}
+										completed={toDo.completed}
+										onComplete={() => completeToDo(toDo.text)}
+										onDelete={() => deleteToDo(toDo.text)} />
+								))
+							}
+						</TodoList>
+					)
 				}
-			</TodoList>
+			</TodoContext.Consumer>
+
 			<CreateTodoButton />
-        </React.Fragment>
-    );
+		</React.Fragment>
+	);
 }
 
-export { AppUI };
+export default AppUI;
