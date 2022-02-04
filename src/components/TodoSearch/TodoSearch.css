@@ -1,0 +1,15 @@
+.TodoSearch {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 1rem auto;
+    padding: 1rem 0 1rem 0.4rem;
+    outline: none;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #170f58;
+    background-color: #070231;
+    text-align: center;
+}
+

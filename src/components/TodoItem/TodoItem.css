@@ -1,0 +1,36 @@
+.TodoItem__li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
+    background-color: #ffff;
+}
+
+.TodoItem__li:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+i {
+    color: rgb(192, 185, 185);
+    cursor: pointer;
+}
+i.TodoItem__do:hover, i.TodoItem__do:active, .TodoItem__do--active{
+    color: rgb(16, 219, 16);
+}
+
+
+i.TodoItem__delete:hover, i.TodoItem__delete:active{
+    color: rgb(219, 16, 16);
+}
+
+.TodoItem__text {
+    margin: 0 auto 0 1rem;
+}
+
+.TodoItem__text--complete {
+    text-decoration: line-through;
+}
