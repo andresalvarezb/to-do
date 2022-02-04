@@ -1,31 +1,31 @@
 import React, { useState } from 'react';
 import { AppUI } from "./AppUI";
 import './App.css';
-import { useLocalStorage } from '../useLocalStorage';
+import useLocalStorage from '../useLocalStorage';
 
-const defaultToDos = [{
-	"text": "Compensation Analyst",
-	"completed": false
-}, {
-	"text": "Cost Accountant",
-	"completed": true
-}, {
-	"text": "VP Accounting",
-	"completed": false
-}, {
-	"text": "Health Coach IV",
-	"completed": true
-}, {
-	"text": "Research Assistant I",
-	"completed": true
-}]
+// const defaultToDos = [{
+// 	"text": "Compensation Analyst",
+// 	"completed": false
+// }, {
+// 	"text": "Cost Accountant",
+// 	"completed": true
+// }, {
+// 	"text": "VP Accounting",
+// 	"completed": false
+// }, {
+// 	"text": "Health Coach IV",
+// 	"completed": true
+// }, {
+// 	"text": "Research Assistant I",
+// 	"completed": true
+// }]
 
 
 function App() {
-	const [ToDos, saveToDos] = useLocalStorage('TO_DOS_V1');
+	const {item: ToDos, saveItem: saveToDos, loading, error} = useLocalStorage('TO_DOS_V1', []);
 	
 
-	const [ToDos, setToDos] = useState(parsedToDos);
+	// const [ToDos, setToDos] = useState(parsedToDos);
 	const [searchValue, setSearchValue] = useState('');
 
 	const completedToDos = ToDos.filter((to_do) => to_do.completed === true).length;
@@ -69,6 +69,8 @@ function App() {
       setSearchValue={setSearchValue}
       completeToDo={completeToDo}
       deleteToDo={deleteToDo}
+	  error={error}
+	  loading={loading}
 		/>
 			
 		

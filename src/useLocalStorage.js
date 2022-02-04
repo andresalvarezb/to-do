@@ -1,12 +1,12 @@
-import React from 'react'
+import {useState, useEffect} from 'react'
 
 // * Custom hook
 function useLocalStorage(itemName, initialValue) {
-    const [error, setError] = React.useState(false)
-    const [loading, setLoading] = React.useState(true)
-    const [item, setItem] = React.useState(initialValue);
+    const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(true)
+    const [item, setItem] = useState(initialValue);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             try {
                 const localStorageItem = localStorage.getItem(itemName);
@@ -47,4 +47,4 @@ function useLocalStorage(itemName, initialValue) {
     };
 }
 
-export { useLocalStorage };
+export default useLocalStorage;

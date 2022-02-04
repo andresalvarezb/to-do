@@ -14,6 +14,8 @@ function AppUI({
     setSearchValue, 
     completeToDo, 
     deleteToDo,
+	error,
+	loading,
 }) {
 
     return (
@@ -21,6 +23,9 @@ function AppUI({
             <TodoCounter totalToDos={totalToDos} completedToDos={completedToDos} />
 			<TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
 			<TodoList>
+                {error && <p>There is a error</p>}
+				{loading && <p>we are loading...</p>}
+                {(!loading && !searchedToDos.length) && <p>Create you first to-do</p>}
 				{
 					searchedToDos.map((toDo, index) => (
 						<TodoItem key={index} text={toDo.text} completed={toDo.completed} onComplete={() => completeToDo(toDo.text)} onDelete={() => deleteToDo(toDo.text)}/>
