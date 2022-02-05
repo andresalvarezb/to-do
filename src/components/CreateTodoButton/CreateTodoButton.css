@@ -8,6 +8,7 @@
     background-color: #070231;
     color: #fff;
     font-size: 2rem;
+    z-index: 2;
 }
 
 .CreateTodoButton__add:active {
