@@ -25,7 +25,6 @@
     padding: 0.5rem;
     border-radius: 5px;
     width: 200px;
-    /* min-height: 100px; */
 }
 
 .Form-buttons {
@@ -47,7 +46,7 @@
 }
 
 .btnForm[type="button"] {
-    background-color: var(--secundarry-color);
+    background-color: var(--secondary-color);
     color: #fff;
 }
 
