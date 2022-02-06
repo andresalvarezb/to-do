@@ -1,0 +1,61 @@
+.Form {
+    width: 300px;
+    min-height: 192px;
+
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.Form-taskContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Form-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.Form-input {
+    outline: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    width: 200px;
+    /* min-height: 100px; */
+}
+
+.Form-buttons {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btnForm {
+    width: 80px;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid transparent;
+    background-color: transparent;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btnForm[type="button"] {
+    background-color: var(--secundarry-color);
+    color: #fff;
+}
+
+.btnForm[type="submit"] {
+    background-color: rgb(34, 194, 13);
+    color: #fff;
+}
+
+.btnForm:hover {
+    opacity: 0.9;
+}

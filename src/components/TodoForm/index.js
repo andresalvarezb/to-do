@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { TodoContext } from '../TodoContext';
+import './todoForm.css'
 
 function TodoForm() {
     const {addToDo, setOpenModal} = useContext(TodoContext);
@@ -21,14 +22,14 @@ function TodoForm() {
         setOpenModal(false)
     }
 
-  return <form onSubmit={onAdd}>
-      <label>
-          <span>Create new task</span>
-          <textarea placeholder='new task' value={newToDoValue} onChange={onChange} />
+  return <form onSubmit={onAdd} className="Form">
+      <label className='Form-taskContainer'>
+          <span className='Form-title'>Create new task</span>
+          <textarea className='Form-input' placeholder='new task' value={newToDoValue} onChange={onChange} />
       </label>
-      <div>
-          <button type='button' onClick={onCancel}>Cancel</button>
-          <button type='submit' >Add</button>
+      <div className='Form-buttons'>
+          <button className='btnForm' type='button' onClick={onCancel}>Cancel</button>
+          <button className='btnForm' type='submit' >Add</button>
       </div>
   </form>;
 }
