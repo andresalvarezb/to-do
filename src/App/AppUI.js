@@ -7,13 +7,14 @@ import CreateTodoButton from "../components/CreateTodoButton";
 import { TodoContext } from '../components/TodoContext';
 import Modal from '../components/Modal';
 import TodoForm from '../components/TodoForm';
+import './app.css'
 
 
 function AppUI() {
 	const { error, loading, searchedToDos, completeToDo, deleteToDo, openModal } = useContext(TodoContext)
 
 	return (
-		<React.Fragment>
+		<div className='ContainerApp'>
 			<TodoCounter />
 			<TodoSearch />
 			<TodoList>
@@ -39,7 +40,7 @@ function AppUI() {
 				</Modal>
 			)}
 			<CreateTodoButton />
-		</React.Fragment>
+		</div>
 	);
 }
 
